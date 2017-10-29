@@ -24,5 +24,7 @@ data/external/military_bases.csv: data/external/military_bases.kml
 		data/external/military_bases.kml \
 		data/external/military_bases.csv
 
-plots: data/external/military_bases.csv data/external/cb_2016_us_state_500k.shp
+data: data/external/military_bases.csv data/external/cb_2016_us_state_500k.shp
+
+plots: data
 	python build_plots.py
