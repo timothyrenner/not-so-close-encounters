@@ -1,6 +1,6 @@
 # Not So Close Encounters
 
-Contains the notebook and plot generator for my "Not So Close Encounters" blog post.
+Contains the notebook and plot generator for my "Not So Close Encounters" [blog post](https://timothyrenner.github.io/datascience/2017/10/28/not-so-close-encounters.html).
 
 ## Quickstart
 
