@@ -1,0 +1,151 @@
+name: not_so_close_encounters
+channels:
+- conda-forge
+- defaults
+dependencies:
+- boost=1.64.0=py35_4
+- boost-cpp=1.64.0=1
+- bzip2=1.0.6=1
+- cairo=1.14.6=4
+- cartopy=0.15.1=py35_4
+- click=6.7=py35_0
+- click-plugins=1.0.3=py35_0
+- cligj=0.4.0=py35_0
+- curl=7.54.1=0
+- cycler=0.10.0=py35_0
+- descartes=1.1.0=py35_0
+- expat=2.1.0=3
+- fiona=1.7.9=py35_0
+- fontconfig=2.12.1=4
+- freetype=2.7=1
+- freexl=1.0.2=2
+- geopandas=0.3.0=py35_0
+- geoplot=0.0.4=py35_0
+- geos=3.5.1=1
+- gettext=0.19.8.1=0
+- giflib=5.1.4=0
+- glib=2.51.4=0
+- hdf4=4.2.12=0
+- hdf5=1.8.18=1
+- icu=58.1=1
+- jpeg=9b=0
+- json-c=0.12.1=0
+- kealib=1.4.7
+- krb5=1.14.2=0
+- libdap4=3.18.3=2
+- libffi=3.2.1=3
+- libgdal=2.1.4
+- libgfortran=3.0.0=0
+- libiconv=1.14=4
+- libkml=1.3.0=1
+- libnetcdf=4.4.1.1=6
+- libpng=1.6.28=0
+- libpq=9.6.3=0
+- libspatialindex=1.8.5=1
+- libspatialite=4.3.0a=15
+- libssh2=1.8.0=1
+- libtiff=4.0.6=7
+- libxml2=2.9.4=4
+- libxslt=1.1.29=5
+- lxml=3.8.0=py35_0
+- matplotlib=2.0.2=py35_2
+- munch=2.2.0=py35_0
+- olefile=0.44=py35_0
+- openjpeg=2.1.2=2
+- owslib=0.14.0=py35_1
+- pandas=0.20.3=py35_1
+- patsy=0.4.1=py35_0
+- pcre=8.39=0
+- pillow=4.2.1=py35_0
+- pixman=0.34.0=0
+- poppler=0.52.0=2
+- poppler-data=0.4.7=0
+- proj4=4.9.3=4
+- psycopg2=2.7.3=py35_0
+- pyepsg=0.3.2=py35_0
+- pyparsing=2.2.0=py35_0
+- pyproj=1.9.5.1=py35_0
+- pysal=1.13.0=py35_0
+- pyshp=1.2.12=py_0
+- python-dateutil=2.6.1=py35_0
+- pytz=2017.2=py35_0
+- requests=2.13.0=py35_0
+- rtree=0.8.3=py35_0
+- seaborn=0.8.1=py35_0
+- shapely=1.6.1=py35_1
+- six=1.10.0=py35_1
+- sqlalchemy=1.1.13=py35_0
+- statsmodels=0.8.0=np113py35_0
+- tornado=4.5.2=py35_0
+- xerces-c=3.1.4=3
+- zlib=1.2.8=3
+- certifi=2016.2.28=py35_0
+- mkl=2017.0.3=0
+- numpy=1.13.1=py35_0
+- openssl=1.0.2l=0
+- pip=9.0.1=py35_1
+- python=3.5.4=0
+- readline=6.2=2
+- scipy=0.19.1=np113py35_0
+- setuptools=36.4.0=py35_0
+- sqlite=3.13.0=0
+- tk=8.5.18=0
+- wheel=0.29.0=py35_0
+- xz=5.2.3=0
+- pip:
+  - appnope==0.1.0
+  - bleach==2.0.0
+  - cchardet==1.1.3
+  - configparser==3.5.0
+  - datadotworld==1.4.1
+  - datapackage==0.8.9
+  - decorator==4.1.2
+  - entrypoints==0.2.3
+  - et-xmlfile==1.0.1
+  - future==0.16.0
+  - html5lib==0.999999999
+  - ijson==2.3
+  - ipykernel==4.6.1
+  - ipython==6.1.0
+  - ipython-genutils==0.2.0
+  - ipywidgets==7.0.0
+  - isodate==0.5.4
+  - jdcal==1.3
+  - jedi==0.10.2
+  - jinja2==2.9.6
+  - jsonlines==1.2.0
+  - jsonschema==2.6.0
+  - jsontableschema==0.10.1
+  - jupyter==1.0.0
+  - jupyter-client==5.1.0
+  - jupyter-console==5.2.0
+  - jupyter-core==4.3.0
+  - linear-tsv==1.0.0
+  - markupsafe==1.0
+  - mistune==0.7.4
+  - nbconvert==5.3.1
+  - nbformat==4.4.0
+  - notebook==5.0.0
+  - openpyxl==2.4.8
+  - pandocfilters==1.4.2
+  - pexpect==4.2.1
+  - pickleshare==0.7.4
+  - prompt-toolkit==1.0.15
+  - ptyprocess==0.5.2
+  - pygments==2.2.0
+  - pyzmq==16.0.2
+  - qtconsole==4.3.1
+  - rfc3986==0.4.1
+  - simplegeneric==0.8.1
+  - tabulator==1.5.0
+  - terminado==0.6
+  - testpath==0.3.1
+  - traitlets==4.3.2
+  - unicodecsv==0.14.1
+  - urllib3==1.22
+  - wcwidth==0.1.7
+  - webencodings==0.5.1
+  - widgetsnbextension==3.0.2
+  - xlrd==1.1.0
+prefix: /Users/timothyrenner/anaconda/envs/ufo_close_encounters
+
