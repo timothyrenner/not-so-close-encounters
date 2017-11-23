@@ -7,6 +7,7 @@ import geoplot as gplt
 import matplotlib.pyplot as plt
 import pyproj
 import hdbscan
+import rtree
 
 from shapely.geometry import MultiPoint, Point
 from shapely.ops import transform
@@ -325,6 +326,76 @@ def main():
     fig.savefig('data/plots/ufo_sightings_with_clusters.png')
     print("Done plotting sightings with clusters.")
     ############################################################################
+
+    import rtree
+
+    def cluster_polygon_loader(polygons):
+        for ii,polygon in enumerate(polygons):
+            yield (ii, polygon.bounds, ii)
+
+    polygon_index = rtree.index.Index(
+        cluster_polygon_loader(cluster_polygons)
+    )
+
+    def nearest_cluster(lon,lat):
+        return list(polygon_index.nearest((lon,lat)*2, 1))[0]
+
+    ufo_sightings_geo.loc[:,'cluster_label_neighbor'] = np.array([
+        nearest_cluster(row.longitude, row.latitude) 
+        for _,row in ufo_sightings_geo.iterrows()
+    ])
+
+    cluster_polygons_neighbors = \
+    [
+        MultiPoint(group.loc[:,['longitude', 'latitude']].values).convex_hull
+        for label,group in ufo_sightings_geo.groupby('cluster_label_neighbor')
+        if label != -1
+    ]
+    
+    ################## UFO SIGHTINGS WITH NEIGHBOR CLUSTERS ####################
+    print("Plotting sightings with neighbor clusters.")
+    # Albers Equal Area is pretty standard for US projections.
+    proj = gplt.crs.AlbersEqualArea(central_longitude=-98, central_latitude=39.5)
+
+    # For some weirdo reason I have to set the ylim manually.
+    # Reference: http://www.residentmar.io/geoplot/examples/usa-city-elevations.html
+    fig,ax = plt.subplots(subplot_kw={'projection':proj}, figsize=(16,12))
+
+    ylim = (-1647757.3894385984, 1457718.4893930717)
+    gplt.polyplot(
+        usa, 
+        projection=proj,
+        ax=ax,
+        linewidth=0.5,
+        facecolor='lightgray',
+        alpha=0.1
+    )
+    gplt.polyplot(
+        gpd.GeoSeries(
+            [p for p in cluster_polygons_neighbors 
+               if p.type == "Polygon"], 
+            crs={"init": "EPSG:4326"}
+        ).intersection(
+            usa.geometry.cascaded_union
+        ),
+        ax=ax,
+        projection=proj,
+        linewidth=0.5,
+        facecolor='red',
+        alpha=0.3
+    )
+    gplt.pointplot(
+        ufo_sightings_geo, 
+        ax=ax, 
+        projection=proj, 
+        s=0.75,
+        alpha=0.5
+    )
+    ax.set_ylim(ylim)
+    ax.set_title("UFO Sightings in the United States")
+
+    fig.savefig('data/plots/ufo_sightings_with_neighbors_clusters.png')
+    print("Done plotting sightings with neighbors clusters.")
 
 if __name__ == "__main__":
     main()
